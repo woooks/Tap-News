@@ -6,6 +6,8 @@ class Auth {
 	}
 
 	static isUserAuthenticated() {
+		console.log('Token in localStorage:')
+		console.log(localStorage.getItem('token'))
 		return localStorage.getItem('token') !== null;
 	}
 

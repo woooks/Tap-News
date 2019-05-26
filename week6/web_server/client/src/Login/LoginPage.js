@@ -7,7 +7,6 @@ import Auth from '../Auth/Auth';
 class LoginPage extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			errors: {},
 			user: {
@@ -17,6 +16,7 @@ class LoginPage extends React.Component {
 		};
 		this.processForm = this.processForm.bind(this);
 		this.changeForm = this.changeForm.bind(this);
+		console.log(this.props);
 	}
 
 	processForm(event) {
@@ -28,7 +28,7 @@ class LoginPage extends React.Component {
 		console.log('password: ' + password);
 
 		// post login data to server and handle response
-		fetch('/auth/login', { //http://localhost:3000
+		fetch('http://localhost:3000/auth/login', { //http://localhost:3000
 			method: 'POST',
 			cache: 'no-cache',
 			headers: {
@@ -46,6 +46,7 @@ class LoginPage extends React.Component {
 					errors: {}
 				})
 				response.json().then(function(json) {
+								console.log('successfully login!!');
 	          		console.log(json);
 	          		Auth.authenticateUser(json.token, email);
 	          		this.props.history.replace('/'); //go back to index page from login page

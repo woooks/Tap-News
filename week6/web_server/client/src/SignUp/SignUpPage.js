@@ -27,13 +27,16 @@ class SignUpPage extends React.Component {
         console.log('email: ' + email);
         console.log('password: ' + password);
         console.log('confirm_password: ' + confirm_password);
-
+        console.log('body:' +  JSON.stringify({
+            email: this.state.user.email,
+            password: this.state.user.password
+          }));
         if(password !== confirm_password){
             console.log("password and confirm password don't match on submit!!!");
             return;
         }
         // post signup data to the server and handle response
-        fetch('/auth/signup', {
+        fetch('http://localhost:3000/auth/signup', {
             method: 'POST',
             cache: 'no-cache',
             headers: {
@@ -49,7 +52,7 @@ class SignUpPage extends React.Component {
             if (response.status === 200) {
                 this.setState({errors: {}});
                 // change the current URL to /login
-                this.context.router.replace('/login');
+                this.props.history.replace('/login');
             } else {
                 response.json().then(function(json) {
                     console.log(json);

@@ -1,0 +1,12 @@
+img.logo {
+   -webkit-filter: invert(1);
+   filter: invert(1);
+   display: block;
+   padding:auto;
+   max-height: 100%;
+   position:absolute;
+ }
+
+ image-parent {
+   position:relative;
+ }

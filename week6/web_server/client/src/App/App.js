@@ -10,7 +10,6 @@ import NewsPanel from '../NewsPanel/NewsPanel';
 function App() {
   return (
     <div className="App">
-        <img src={logo} className="logo" alt="logo" />
         <div className='container'>
           <NewsPanel />
         </div>

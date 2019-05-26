@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Base.css';
 import Auth from '../Auth/Auth';
-
+import logo from '../open-news-2017.png';
 const Base = () => (
 
 <div>
 	<nav className="nav-extended grey darken-4">
-		<div className="nav-wrapper">
-			<a href="/" className="brand-logo">  Open News</a>
+		<div className="nav-wrapper image-parent">
+			<a href="/"><img src={logo} className="logo" alt="logo" /></a>
+
 			<ul id="nav-mobile" className="right">
 				{Auth.isUserAuthenticated() ?
 				(
@@ -29,8 +30,7 @@ const Base = () => (
 		</div>
 
 	</nav>
-	<br/>
-	<br/>
+
 
 </div>
 );
